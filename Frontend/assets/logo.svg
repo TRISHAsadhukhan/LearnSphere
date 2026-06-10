@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Ocean Teal to Deep Sky Blue Gradient -->
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F8B8D" />
+      <stop offset="100%" stop-color="#143642" />
+    </linearGradient>
+    <!-- Warm Accent gold/orange -->
+    <linearGradient id="tasselGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EC9A29" />
+      <stop offset="100%" stop-color="#d6851b" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Glowing background cap outline -->
+  <path d="M50 15 L88 34 L50 53 L12 34 Z" fill="url(#capGrad)" filter="url(#dropShadow)" />
+  
+  <!-- Under part of the cap -->
+  <path d="M26 44.5 V58 C26 66 36 72 50 72 C64 72 74 66 74 58 V44.5 L50 56 Z" fill="#143642" opacity="0.9" />
+  
+  <!-- Ribbon outline under cap base -->
+  <path d="M30 58 C30 63 38 67 50 67 C62 67 70 63 70 58 C70 59 62 68 50 68 C38 68 30 59 30 58 Z" fill="url(#tasselGrad)" />
+
+  <!-- Tassel / Hanging string -->
+  <path d="M50 34 L78 45 V63" fill="none" stroke="url(#tasselGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Tassel small round bead -->
+  <circle cx="78" cy="63" r="4.5" fill="url(#tasselGrad)" />
+</svg>

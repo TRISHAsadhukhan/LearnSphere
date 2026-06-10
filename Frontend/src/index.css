@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Premium Modern EdTech palette */
+  --color-brand-light: #f8fafc;
+  --color-brand-dark: #0f172a;
+  --color-brand-primary: #0F8B8D;
+  --color-brand-danger: #ef4444;
+  --color-brand-accent: #f59e0b;
+}
+
+@layer base {
+  body {
+    background-color: #f1f5f9;
+    color: var(--color-brand-dark);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom glow shadow */
+.teal-glow {
+  box-shadow: 0 8px 24px rgba(15, 139, 141, 0.35);
+}
+
+.amber-glow {
+  box-shadow: 0 8px 24px rgba(236, 154, 41, 0.3);
+}
+
+/* Card base style */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 1.25rem; /* rounded-2xl */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Polish datetime calendar inputs */
+input[type="datetime-local"] {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #ffffff;
+  color: #143642;
+  font-family: var(--font-sans);
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(47%) sepia(21%) saturate(2206%) hue-rotate(134deg) brightness(93%) contrast(92%); /* Matches #0F8B8D */
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+  background-color: rgba(15, 139, 141, 0.1);
+}
+
+/* Form validation pulse errors */
+.form-input-error {
+  border-color: var(--color-brand-danger) !important;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Page fade-in animations */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
