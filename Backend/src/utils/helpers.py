@@ -84,7 +84,15 @@ async def send_email(
 
         subtype="plain"
     )
-
+    
+    print(conf)
+    print("MAIL_SERVER:", setting.MAIL_SERVER)
+    print("MAIL_PORT:", setting.MAIL_PORT)
+    print("MAIL_STARTTLS:", setting.MAIL_STARTTLS)
+    print("MAIL_SSL_TLS:", setting.MAIL_SSL_TLS)
+    print("MAIL_USERNAME:", setting.MAIL_USERNAME)
+    
+    
     fm = FastMail(conf)
 
     await fm.send_message(message)
