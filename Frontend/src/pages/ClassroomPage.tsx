@@ -161,7 +161,7 @@ export default function ClassroomPage() {
 
             <div className="flex items-center gap-1 text-[11px] font-bold text-white/65 uppercase select-none">
               <Users className="w-4 h-4 text-white/50" />
-              {classroom.membersCount} active subscribers
+              {/* {classroom.membersCount} active subscribers */}
             </div>
           </div>
 
@@ -202,9 +202,9 @@ export default function ClassroomPage() {
           <nav className="space-y-1.5 pt-2" id="sidebar-navigation-anchors">
             {[
               { id: 'materials', label: 'Class Materials', icon: FileText },
-              { id: 'exams', label: 'Exam Papers', icon: ClipboardList },
-              { id: 'assignments', label: 'HW Assignments', icon: FileText },
-              { id: 'notices', label: 'Bulletin Board', icon: Megaphone }
+              { id: 'exams', label: 'MCQ Exam Papers', icon: ClipboardList },
+              { id: 'assignments', label: 'Assignments', icon: FileText },
+              { id: 'notices', label: 'Annoucements', icon: Megaphone }
             ].map(item => {
               const Icon = item.icon;
               const isActive = activeView === item.id;

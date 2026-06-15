@@ -343,7 +343,7 @@ export default function ExamsSection({ classId, isCreator }: ExamsSectionProps )
                           const count = hist ? hist.attempted : 0;
                           return (
                           <span className="text-xs font-bold text-brand-dark/65 flex items-center gap-1 select-none">
-                            👤 {count} submissions
+                            {/* 👤 {count} submissions */}
                           </span>
                           );
                         })() : sub ? (
