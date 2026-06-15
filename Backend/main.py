@@ -10,6 +10,7 @@ from src.materials.material_route import router as material_router
 from src.exams.exam_route import router as exam_router
 from src.assignments.assignment_route import router as assignment_router
 from src.manage.manage_route import router as manage_router
+from src.utils.health_check import health_check_route
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.user.user_model import User_db
@@ -53,6 +54,7 @@ app.include_router(material_router)
 app.include_router(exam_router)
 app.include_router(manage_router)
 app.include_router(assignment_router)
+app.include_router(health_check_route)
 
 
 
