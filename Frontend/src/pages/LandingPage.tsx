@@ -410,29 +410,29 @@ export default function LandingPage() {
 
           {/* Right Preview Column (Floating Mockup) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:flex justify-center relative pointer-events-none"
-            id="hero-mockup-wrapper"
+            // initial={{ opacity: 0, scale: 0.95 }}
+            // animate={{ opacity: 1, scale: 1 }}
+            // transition={{ duration: 0.8, delay: 0.2 }}
+            // className="hidden lg:flex justify-center relative pointer-events-none"
+            // id="hero-mockup-wrapper"
           >
             {/* Ambient Background Glow for the mockup */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0F8B8D]/25 to-transparent filter blur-2xl rounded-full scale-105 pointer-events-none" />
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0F8B8D]/25 to-transparent filter blur-2xl rounded-full scale-105 pointer-events-none" /> */}
 
             {/* Floating Visual App Mockup */}
-            <div className="relative bg-white/5 border border-white/15 p-4 rounded-3xl backdrop-blur-md shadow-2xl max-w-md w-full animate-bounce [animation-duration:6s] h-auto p-2"
+            {/* <div className="relative bg-white/5 border border-white/15 p-4 rounded-3xl backdrop-blur-md shadow-2xl max-w-md w-full animate-bounce [animation-duration:6s] h-auto p-2"
                  style={{ animation: 'float 5s ease-in-out infinite' }}
-            >
+            > */}
               {/* Fake Chrome window buttons */}
-              <div className="flex items-center gap-1.5 mb-3 px-2">
+              {/* <div className="flex items-center gap-1.5 mb-3 px-2">
                 <span className="w-3 h-3 rounded-full bg-red-400 block" />
                 <span className="w-3 h-3 rounded-full bg-yellow-400 block" />
                 <span className="w-3 h-3 rounded-full bg-green-400 block" />
                 <span className="text-[10px] text-white/50 ml-3 font-mono">learnsphere.org/classroom</span>
-              </div>
+              </div> */}
 
               {/* Styled mock dashboard interior card list */}
-              <div className="space-y-3 bg-[#143642]/85 p-4 rounded-2xl border border-white/5 font-sans text-left">
+              {/* <div className="space-y-3 bg-[#143642]/85 p-4 rounded-2xl border border-white/5 font-sans text-left">
                 <div className="h-5 bg-white/20 rounded w-1/3 mb-4" />
                 <div className="space-y-4">
                   {[
@@ -453,8 +453,8 @@ export default function LandingPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </motion.div>
 
         </div>
