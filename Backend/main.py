@@ -12,8 +12,16 @@ from src.assignments.assignment_route import router as assignment_router
 from src.manage.manage_route import router as manage_router
 from fastapi.middleware.cors import CORSMiddleware
 
+from src.user.user_model import User_db
+from src.classrooms.classroom_model import classroom_model
+from src.members.member_model import member_model
+from src.notice.notice_model import Notice_db , Reaction_db
+from src.assignments.assignment_model import Assignment , AssignmentSubmission
+from src.exams.exam_model import Exam , ExamAnswer , ExamAttempt , ExamQuestion
+from src.materials.material_model import ClassMaterial
 
-# base.metadata.create_all(engine)
+
+base.metadata.create_all(engine)
 
 
 app = FastAPI()
