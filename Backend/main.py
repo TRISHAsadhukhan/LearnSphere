@@ -22,6 +22,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://learn-sphere-a5w50qw27-trishh-projects.vercel.app",
         "https://learn-sphere-ashen-three.vercel.app",
         "http://localhost:3000",
         "http://127.0.0.1:3000",

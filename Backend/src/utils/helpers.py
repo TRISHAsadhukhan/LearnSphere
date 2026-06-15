@@ -12,6 +12,7 @@ def is_authenticated(request : Request , db : Session = Depends(get_db)):
     
     try:
         token = request.headers.get("authorization")
+        print("URL:", request.url)
         
         if not token:
             raise HTTPException(400,detail="no token")
