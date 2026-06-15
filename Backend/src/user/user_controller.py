@@ -121,7 +121,7 @@ async def forgot_password_controller(body : forgot_passwordSchema , db : Session
     sub = "Forget Password ?"
     body = f"Your One-Time-Password to reset your password is {otp}"
 
-    await send_email(email , sub , body)
+    send_email(email, sub, body)
 
     return {
         "message": "OTP sent successfully",

@@ -68,34 +68,30 @@ conf = ConnectionConfig(
 )
 
 
-async def send_email(
-    receiver_email: str,
-    subject: str,
-    body: str
-):
+import sib_api_v3_sdk
+from sib_api_v3_sdk.rest import ApiException
+import os
 
-    message = MessageSchema(
-
-        subject=subject,
-
-        recipients=[receiver_email],
-
-        body=body,
-
-        subtype="plain"
+def send_email(email: str, subject: str, body: str):
+    configuration = sib_api_v3_sdk.Configuration()
+    configuration.api_key['api-key'] = os.getenv("BREVO_API_KEY")
+    
+    api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
+        sib_api_v3_sdk.ApiClient(configuration)
     )
     
-    print(conf)
-    print("MAIL_SERVER:", setting.MAIL_SERVER)
-    print("MAIL_PORT:", setting.MAIL_PORT)
-    print("MAIL_STARTTLS:", setting.MAIL_STARTTLS)
-    print("MAIL_SSL_TLS:", setting.MAIL_SSL_TLS)
-    print("MAIL_USERNAME:", setting.MAIL_USERNAME)
+    send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
+        to=[{"email": email}],
+        sender={"email": "learnsphere.2k26@gmail.com", "name": "LearnSphere"},
+        subject=subject,
+        html_content=body
+    )
     
-    
-    fm = FastMail(conf)
-
-    await fm.send_message(message)
+    try:
+        api_instance.send_transac_email(send_smtp_email)
+    except ApiException as e:
+        print(f"Email sending failed: {e}")
+        raise
 
  
     
