@@ -1,6 +1,6 @@
 import strict from "assert/strict";
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://127.0.0.1:8000';
+const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'https://learnsphere-hm4r.onrender.com' || 'http://127.0.0.1:8000';
 
 function getHeaders(isMultipart = false): HeadersInit {
   const token = localStorage.getItem('token');
@@ -27,7 +27,7 @@ export async function request(path: string, options: RequestInit = {}): Promise<
     try {
       const errJson = await response.json();
       errorDetail = errJson.detail || errJson.message || errorDetail;
-    } catch (_) {}
+    } catch (_) { }
     throw new Error(errorDetail);
   }
 
@@ -138,12 +138,12 @@ export const api = {
       method: 'DELETE',
     });
   },
- 
+
   regenerateRoomKey: async (classId: string) => {
-  return request(`/classroom/regen-key/${parseInt(classId, 10)}`, {
-    method: 'PATCH',
-  });
-},
+    return request(`/classroom/regen-key/${parseInt(classId, 10)}`, {
+      method: 'PATCH',
+    });
+  },
 
   kickClassroomMember: async (classId: string, userId: string) => {
     return request(`/classroom/${parseInt(classId, 10)}/manage/members/${parseInt(userId, 10)}`, {
@@ -284,7 +284,7 @@ export const api = {
     if (description) formData.append('description', description);
     formData.append('start_time', startTime);
     formData.append('end_time', endTime);
-    formData.append("total_marks",String(total_marks));
+    formData.append("total_marks", String(total_marks));
     return request(`/classroom/${parseInt(classId, 10)}/assignments`, {
       method: 'POST',
       body: formData,
@@ -347,22 +347,22 @@ export const api = {
   },
 
   deleteExam: async (classId: string, examId: string) =>
-  request(`/classroom/${parseInt(classId, 10)}/exams/${parseInt(examId, 10)}`, { method: 'DELETE' }),
+    request(`/classroom/${parseInt(classId, 10)}/exams/${parseInt(examId, 10)}`, { method: 'DELETE' }),
 
-deleteAssignment: async (classId: string, assignmentId: string) =>
-  request(`/classroom/${parseInt(classId, 10)}/assignments/${parseInt(assignmentId, 10)}`, { method: 'DELETE' }),
+  deleteAssignment: async (classId: string, assignmentId: string) =>
+    request(`/classroom/${parseInt(classId, 10)}/assignments/${parseInt(assignmentId, 10)}`, { method: 'DELETE' }),
 
-downloadFileAsBlob: async (url: string, fileName: string): Promise<void> => {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error('Download failed');
-  const blob = await response.blob();
-  const blobUrl = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = blobUrl; a.download = fileName;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
-},
-  
+  downloadFileAsBlob: async (url: string, fileName: string): Promise<void> => {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Download failed');
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl; a.download = fileName;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+  },
+
 };
 
 
